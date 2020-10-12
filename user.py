@@ -2,16 +2,19 @@ class user:
 
     user_list = []
 
+    def save_user(self):
+
+        user.user_list.append(self)
+
+
 
     def __init__(self, user, password):
         self.user = user
         self.password = password
 
 
-        def save_user(self):
-
-            user.user_list.append(self)
-
+        
+new_user = user("default_user", "0000")
 
 class credential(user):
     
@@ -26,6 +29,9 @@ class credential(user):
             
 
             password.saved_passwords_list .append(self)
+
+
+
 
 
 

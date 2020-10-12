@@ -1,16 +1,19 @@
 from user import user
 from user import credential
+import string
+import secrets
 
 def main():
 
     while True:
         print("Hi and welcome to your Password Vault")
-        print("=" * 100)
-        print("Select a code to continue with: \n \nNU--For Creating new User\nLG-- To Login as an existing User\nEX-- To exit \n")
-        print("-" * 100)
+        print("Please select a code to continue with:")
+        print("=" * 70)
+        print("\n \nNU--For Creating new User\nLG-- To Login as an existing User\nEX-- To exit \n")
+        print("-" * 70)
 
         short_code = input().upper()
-        print("-" * 100)
+        print("-" * 70)
 
         if short_code =='NU':
             print("Enter Username of your choice:")
@@ -21,19 +24,24 @@ def main():
 
             print("Confirm Entered password:")
             confirm_password = input()
+            
 
             while confirm_password != created_new_password:
                 print("Password did not match. Please make sure paswwords match")
                 print("Please Re- Enter your Password:")
                 created_new_password = input()
-
-
-
+                
             else:
 
-                print("*" * 100)
-                print(f"********************* Congratulations  {created_new_user} Your account is ready ******************")
-                print("*" * 100)
+                print("*" * 70)
+                print(f"*********** Congratulations  {created_new_user.upper()},  Your account is ready *************")
+                print("*" * 70)
+
+                # save_user(new_user( created_new_user, created_new_password )) # create and save new user.
+                # print ('\n')
+                # print(f"New User {created_new_user} created")
+                # print ('\n')
+
                 print("\nLogin to your account:")
                 print("Enter Username:")
                 entered_username = input()
@@ -50,59 +58,114 @@ def main():
                 print("Enter Your Password:")
                 entered_password = input()
             else:
-                print(f"Congratulations {entered_username} welcome to your vault")
-                print("-" * 100)
-                print("Select code to continue: \nTW: For Twitter \nFB: For Facebook \nIG: For Instagram \nPW: to view your saved passwords")
+                print(f"Welcome to your passwords vault {entered_username.upper()} ")
+                print("-" * 70)
+                print("Select code to continue: \nTW: For Twitter \nIG: For Instagram \nPW: to view your saved passwords")
                 short_code = input().upper()
 
-                print("-" * 100)
+                print("-" * 70)
                 if short_code =='TW':
 
-                    # print("Enter Social Media; Twitter, Instagram, Facebook:")
-                    
-                    # social_media = input().upper()
+                    print(f"Select G for the system to generate password for you or select E to enter your own password:")
+                    selection = input().upper()
+                    if selection == 'G':
+                        print("Enter your twitter Username")
+                        username = input()
 
-                    print(f"Enter Your  Twitter Password:")
+                        alphabet = string.ascii_letters + string.digits
+                        password = ''.join(secrets.choice(alphabet) for i in range(8))
 
-                    saved_new_password = input()
+                        f= open("passwords.txt","w")
+                        f.write("Your Twitter username is:")
+                        f.write(username )
+                        f.write("\nYour Twitter Password is:")
+                        f.write(password )
 
-                    # save_password(saved_new_password)
+                        f.close()
+                    elif selection == "E":
 
-                    f= open("passwords.txt","r+")
+                        print("Enter your twitter Username")
 
-                    f.write("Your Twitter Password is:")
-                    f.write(saved_new_password )
-                    f.close()
+                        saved_new_username = input()
+                        print(f"Enter Your  Twitter Password:")
+                        saved_new_password = input()
+
+                        f= open("passwords.txt","w")
+
+                        f.write("Your Twitter username is:")
+                        f.write(saved_new_username )
+                        f.write("\nYour Twitter Password is:")
+                        f.write(saved_new_password )
+
+                        f.close()
+
+
+                if short_code =='IG':
+
+                    print(f"Select G for the system to generate password for you or select E to enter your own password:")
+                    selection = input().upper()
+                    if selection == 'G':
+                        print("Enter your Instagram Username")
+                        username = input()
+
+                        alphabet = string.ascii_letters + string.digits
+                        password = ''.join(secrets.choice(alphabet) for i in range(8))
+
+                        f= open("ig.txt","w")
+                        f.write("Your Instagram username is:")
+                        f.write(username )
+                        f.write("\nYour Instagram Password is:")
+                        f.write(password )
+
+                        f.close()
+                    elif selection == "E":
+
+                        print("Enter your Instagram Username")
+
+                        saved_new_username = input()
+                        print(f"Enter Your  Instagram Password:")
+                        saved_new_password = input()
+
+                        f= open("passwords.txt","w")
+
+                        f.write("Your Instagram username is:")
+                        f.write(saved_new_username )
+                        f.write("\nYour Instagram Password is:")
+                        f.write(saved_new_password )
+
+                        f.close()
 
 
                 if short_code =='PW':
                     f= open("passwords.txt","r")
-
-                    # f.read("passwords.txt")
-
                     print(f.read())
 
+                    print("\n")
 
-                    
+                    f= open("ig.txt","r")
+                    print(f.read())
+
+                    print("\n\n")
 
                     
         elif  short_code == 'LG':
             print("Welcome to Your Vault: ")
             print("Enter your username:")
-            default_user_name = input()
+            entered_user = input()
 
             print("Please enter Your Password:")
-            default_user_password = input()
-            print("-" * 100)
+            created_new_passwords = input()
+            print("-" * 70)
 
-            while default_user_password != "defaultUser" or default_password != default_user_password:
+            while entered_user != "entered_username" or created_password != created_new_password:
                 print("Invalid username or Password")
-                print("If you want to login as a default user enter: Username-defaultUser and password-  00000")
-                print("-" * 20)
+                print("Please enter a valid username and password.")
+                print("-" * 70)
+                
             else:
                 print("You have succesfully Logged into your account")
-                print("*" * 100)
-                print("*" * 100)
+                print("*" * 70)
+                print("*" * 70)
 
 
         elif short_code == "EX":
