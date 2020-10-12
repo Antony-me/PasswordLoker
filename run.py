@@ -7,9 +7,9 @@ def main():
     '''
 
     while True:
-        print("Hi and welcome to your Password Vault")
-        print("Please select a code to continue with:")
+        print("PLEASE SELECT CODE TO CONTINUE WITH:")
         print("=" * 70)
+
         ''' This is to help user to select what he wants to do
         '''
 
@@ -20,13 +20,13 @@ def main():
         print("-" * 70)
 
         if short_code =='NU':
-            print("Enter Username of your choice:")
+            print("\nEnter Username of your choice:")
             created_new_user = input()
 
-            print("Create a password:")
+            print("\nCreate a password:")
             created_new_password = input()
 
-            print("Confirm Entered password:")
+            print("\nConfirm Entered password:")
             confirm_password = input()
 
             '''
@@ -41,7 +41,7 @@ def main():
             else:
 
                 print("*" * 70)
-                print(f"*********** Congratulations  {created_new_user.upper()},  Your account is ready *************")
+                print(f"**Congratulations {created_new_user.upper()}, Your account is ready select LG to login*")
                 print("*" * 70)
             '''
             Log into your created account
@@ -49,7 +49,7 @@ def main():
 
         elif  short_code == 'LG':
             print("Welcome to Your Vault: ")
-            print("Enter your username:")
+            print("\nEnter your username:")
             entered_username = input()
 
             print("\nEnter Your Password:")
@@ -61,14 +61,15 @@ def main():
             while entered_username != created_new_user or entered_password != created_new_password:
                 print("Invalid username or password")
                 print("Please Enter Valid Username and Paswword:")
+                
             else:
-                print("Select code to continue: \nTW: For Twitter \nIG: For Instagram \nPW: to view your saved passwords")
+                print("\nSelect code to continue: \nTW: For Twitter \nIG: For Instagram \nPW: to view your saved passwords")
                 short_code = input().upper()
 
                 print("-" * 70)
                 if short_code =='TW':
 
-                    print(f"Select G for the system to generate password for you or select E to enter your own password:")
+                    print(f"\nSelect G for the system to generate password for you or select E to enter your own password:")
                     selection = input().upper()
                     if selection == 'G':
                         print("Enter your twitter Username")
@@ -98,7 +99,7 @@ def main():
 
                     elif selection == "E":
 
-                        print("Enter your twitter Username")
+                        print("\nEnter your twitter Username")
                         saved_new_username = input()
                         print(f"Enter Your  Twitter Password:")
                         saved_new_password = input()
@@ -160,16 +161,15 @@ def main():
                     '''
                     This is to open the text file that contains the usernames and passwords
                     '''
-                    
+
                     f= open("Passwords/twitter.txt","r")
                     print(f.read())
-
                     print("\n")
 
                     f= open("Passwords/ig.txt","r")
                     print(f.read())
 
-                    print("\n\n")
+                    print("\n")
 
         elif short_code == "EX":
             break
