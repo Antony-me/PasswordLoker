@@ -1,4 +1,4 @@
-class user:
+class User:
 
     user_list = []
 
@@ -6,29 +6,25 @@ class user:
 
         user.user_list.append(self)
 
-
-
     def __init__(self, user, password):
         self.user = user
         self.password = password
 
+new_user = User("created_user", "created_password")
 
-        
-new_user = user("default_user", "0000")
-
-class credential(user):
-    
+class Credential(User):
 
     saved_passwords_list = []
+
+    def save_password(self):
+
+        password.saved_passwords_list .append(self)
 
     def __init__(self, social_media, password):
         self.social_media = social_media
         self.password = password
 
-        def save_password(self):
-            
-
-            password.saved_passwords_list .append(self)
+        
 
 
 
