@@ -10,7 +10,7 @@ class User:
         self.user = user
         self.password = password
 
-new_user = User("created_user", "created_password")
+# new_user = User("created_user", "created_password")
 
 class Credential(User):
 

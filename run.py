@@ -41,7 +41,7 @@ def main():
             else:
 
                 print("*" * 70)
-                print(f"**Congratulations {created_new_user.upper()}, Your account is ready select LG to login*")
+                print(f"*Congratulations {created_new_user.upper()}, Your account is ready, select LG to login*")
                 print("*" * 70)
             '''
             Log into your created account
@@ -63,7 +63,9 @@ def main():
                 print("Please Enter Valid Username and Paswword:")
                 
             else:
-                print("\nSelect code to continue: \nTW: For Twitter \nIG: For Instagram \nPW: to view your saved passwords and \nDL: to delete saved username and password")
+                print("\nSelect code to continue: \n\nTW: For Twitter \nIG: For Instagram \nPW: to view your saved passwords \nDL: to delete saved username and password")
+
+                print("\n")
                 short_code = input().upper()
 
                 print("-" * 70)
@@ -72,7 +74,7 @@ def main():
                     print(f"\nSelect G for the system to generate password for you or select E to enter your own password:")
                     selection = input().upper()
                     if selection == 'G':
-                        print("Enter your twitter Username")
+                        print("\nEnter your twitter Username")
                         username = input()
                         '''
                         If a user decides for the system to geneate password it is done using the imported modules string and secret a random password is generated
