@@ -63,7 +63,7 @@ def main():
                 print("Please Enter Valid Username and Paswword:")
                 
             else:
-                print("\nSelect code to continue: \nTW: For Twitter \nIG: For Instagram \nPW: to view your saved passwords")
+                print("\nSelect code to continue: \nTW: For Twitter \nIG: For Instagram \nPW: to view your saved passwords and \nDL: to delete saved username and password")
                 short_code = input().upper()
 
                 print("-" * 70)
@@ -170,6 +170,24 @@ def main():
                     print(f.read())
 
                     print("\n")
+
+                
+                if short_code =='DL':
+                    print("Select account to delete: DT for Twitter and DI for instagram")
+                    select = input().upper()
+                    '''
+                    This is to delete the text file that contains the usernames and passwords
+                    '''
+                    if select == 'DT':
+                        f= open("Passwords/twitter.txt","r+")
+                        f.truncate(0)
+                        print("\n")
+
+                    if select == 'DI':
+                        f= open("Passwords/ig.txt","r+")
+                        f.truncate(0)
+                        print("\n")
+                
 
         elif short_code == "EX":
             break
