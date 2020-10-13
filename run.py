@@ -1,4 +1,5 @@
 from user import User
+from credatials import Credential
 import string
 import secrets
 
@@ -29,6 +30,7 @@ def main():
             print("\nConfirm Entered password:")
             confirm_password = input()
 
+
             '''
             This is to confirm the passwords match before proceeding
             '''
@@ -43,6 +45,10 @@ def main():
                 print("*" * 70)
                 print(f"*Congratulations {created_new_user.upper()}, Your account is ready, select LG to login*")
                 print("*" * 70)
+
+                new_user = User(created_new_user, created_new_password)
+                new_user.save_user()
+
             '''
             Log into your created account
             '''
@@ -87,13 +93,14 @@ def main():
                         This is to write the saved password and username to a text file 
                         '''
 
-                        f= open("Passwords/twitter.txt","w")
-                        f.write("Your Twitter username is:")
+                        f= open("Passwords/twitter.txt","a")
+                        f.write("\n\nYour Twitter username is:")
                         f.write(username )
                         f.write("\nYour Twitter Password is:")
                         f.write(password )
 
                         f.close()
+                        
 
                         '''
                         This is if a user decides to  enter his/her own password
@@ -106,9 +113,9 @@ def main():
                         print(f"Enter Your  Twitter Password:")
                         saved_new_password = input()
 
-                        f= open("Passwords/twitter.txt","w")
+                        f= open("Passwords/twitter.txt","a")
 
-                        f.write("Your Twitter username is:")
+                        f.write("\n\nYour Twitter username is:")
                         f.write(saved_new_username )
                         f.write("\nYour Twitter Password is:")
                         f.write(saved_new_password )
@@ -129,8 +136,8 @@ def main():
                         alphabet = string.ascii_letters + string.digits
                         password = ''.join(secrets.choice(alphabet) for i in range(8))
 
-                        f= open("Passwords/ig.txt","w")
-                        f.write("Your Instagram username is:")
+                        f= open("Passwords/ig.txt","a")
+                        f.write("\n\nYour Instagram username is:")
                         f.write(username )
                         f.write("\nYour Instagram Password is:")
                         f.write(password )
@@ -149,9 +156,9 @@ def main():
                         print(f"Enter Your  Instagram Password:")
                         saved_new_password = input()
 
-                        f= open("Passwords/ig.txt","w")
+                        f= open("Passwords/ig.txt","a")
 
-                        f.write("Your Instagram username is:")
+                        f.write("\n\nYour Instagram username is:")
                         f.write(saved_new_username )
                         f.write("\nYour Instagram Password is:")
                         f.write(saved_new_password )
@@ -163,6 +170,7 @@ def main():
                     '''
                     This is to open the text file that contains the usernames and passwords
                     '''
+                    print("\n")
 
                     f= open("Passwords/twitter.txt","r")
                     print(f.read())
@@ -170,7 +178,6 @@ def main():
 
                     f= open("Passwords/ig.txt","r")
                     print(f.read())
-
                     print("\n")
 
                 

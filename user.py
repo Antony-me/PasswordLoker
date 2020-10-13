@@ -1,30 +1,30 @@
 class User:
-
+    '''
+    List of registered  users
+    '''
+    
     user_list = []
 
-    def save_user(self):
-
-        user.user_list.append(self)
-
+   
     def __init__(self, user, password):
         self.user = user
         self.password = password
 
-# new_user = User("created_user", "created_password")
+    '''
+    Class method to save the user to the user_list
+    '''
 
-class Credential(User):
+    @classmethod
+    def save_user(self):
+        self.user_list.append(self)
 
-    saved_passwords_list = []
 
-    def save_password(self):
 
-        password.saved_passwords_list .append(self)
 
-    def __init__(self, social_media, password):
-        self.social_media = social_media
-        self.password = password
+# if __name__ =='__main__':
+#     main()
 
-        
+
 
 
 
